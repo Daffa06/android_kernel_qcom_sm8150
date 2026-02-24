@@ -54,6 +54,7 @@ modules.builtin
 /vmlinuz
 /System.map
 /Module.markers
+/out
 
 #
 # RPM spec file (make rpm-pkg)
@@ -83,6 +84,7 @@ modules.builtin
 include/config
 include/generated
 arch/*/include/generated
+build.log
 
 # stgit generated dirs
 patches-*
