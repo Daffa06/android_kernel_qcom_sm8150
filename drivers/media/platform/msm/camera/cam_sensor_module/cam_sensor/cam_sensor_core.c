@@ -617,6 +617,12 @@ void cam_sensor_shutdown(struct cam_sensor_ctrl_t *s_ctrl)
 	s_ctrl->sensor_state = CAM_SENSOR_INIT;
 }
 
+int cam_sensor_match_id(struct cam_sensor_ctrl_t *s_ctrl)
+{
+	int rc = 0;
+	uint32_t chipid = 0;
+	struct cam_camera_slave_info *slave_info;
+
 #ifdef CONFIG_MACH_XIAOMI_SM8150
     uint32_t addr_type = s_ctrl->sensor_probe_addr_type;
     uint32_t data_type = s_ctrl->sensor_probe_data_type;
@@ -624,11 +630,6 @@ void cam_sensor_shutdown(struct cam_sensor_ctrl_t *s_ctrl)
     uint32_t addr_type = CAMERA_SENSOR_I2C_TYPE_WORD;
     uint32_t data_type = CAMERA_SENSOR_I2C_TYPE_WORD;
 #endif
-int cam_sensor_match_id(struct cam_sensor_ctrl_t *s_ctrl)
-{
-	int rc = 0;
-	uint32_t chipid = 0;
-	struct cam_camera_slave_info *slave_info;
 
 	slave_info = &(s_ctrl->sensordata->slave_info);
 
